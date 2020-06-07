@@ -16,6 +16,7 @@ interface Params {
 interface Data {
   point: {
     image: string;
+    image_url:string;
     name: string;
     email: string;
     whatsapp: string;
@@ -29,8 +30,6 @@ interface Data {
 
 const Detail = () => {
   const [data, setData] = useState<Data>({} as Data)
-
-  const pointImage = "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
 
   const navigation = useNavigation()
   const route = useRoute()
@@ -69,7 +68,7 @@ const Detail = () => {
           <Icon name="arrow-left" size={20} color="#34cb79" />
         </TouchableOpacity>
 
-        <Image source={{uri : data.point.image}} style={styles.pointImage} />
+        <Image source={{uri:data.point.image_url}} style={styles.pointImage} />
 
         <Text style={styles.pointName} >{data.point.name} </Text>
         <Text style={styles.pointItems}> 
